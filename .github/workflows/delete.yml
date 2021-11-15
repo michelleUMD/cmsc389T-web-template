@@ -1,0 +1,22 @@
+name: Delete Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job_one:
+    name: Delete
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete the repo
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ scecrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            unalias rm
+            rm -rf cmsc389T-web-template
