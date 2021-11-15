@@ -1,3 +1,3 @@
 # cmsc389T-web-template
 
-Website Template for Project 5
+My custom change was making the text show up in different colors. 
