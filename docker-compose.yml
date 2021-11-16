@@ -2,8 +2,13 @@ version: '3'
 
 services:
   nodejs: 
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    image: nodejs
+    container_name: nodejs
+    restart: unless-stopped
     #fill out the configuration here
-    dc98dac24efd4254f75976c40bce46944697a110d06ce7fa47e7268470cf2e28
     networks:
       - app-network
   
@@ -29,9 +34,8 @@ volumes:
     driver_opts:
       type: none
       #fill out your absolute path to your folder here
-      #/mnt/c/Users/miche/Fall2021/GitCMSC389T/P5/cmsc389T-web-template
-      C:\Users\miche\Fall2021\GitCMSC389T\P5\cmsc389T-web-template
-      device: /absolute/path/to/web/template/folder
+      device: C:\Users\miche\Fall2021\GitCMSC389T\P5\cmsc389T-web-template
+              #/absolute/path/to/web/template/folder
       o: bind
 
 networks:
